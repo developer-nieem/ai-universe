@@ -41,7 +41,7 @@ const displayAiData = (data) => {
                             <i class="bi bi-calendar3"></i> <span>${singlePost.published_in}</span>
                         </div>
                         <div>
-                            <button onclick="loadAIPostDetails('${singlePost.id}')" class="rounded-circle border-0"><i class="bi bi-arrow-right"></i></button>
+                            <button onclick="loadAIPostDetails('${singlePost.id}')" class="rounded-circle border-0" data-bs-toggle="modal" data-bs-target="#aiDetailsModal"><i class="bi bi-arrow-right"></i></button>
                         </div>
                     </div>
               </div>
@@ -54,10 +54,14 @@ const displayAiData = (data) => {
 // load AI post details 
 const loadAIPostDetails = id =>{
     const url = `https://openapi.programming-hero.com/api/ai/tool/${id}`;
+    
     fetch(url)
       .then((res) => res.json())
-      .then((data) => displayAiData(data.data.tools))
+      .then((data) => displayAIPostDetails(data))
       .catch((error) => console.log(error));
 }
 
+// display single details
+const displayAIPostDetails = (details) =>{
 
+}
