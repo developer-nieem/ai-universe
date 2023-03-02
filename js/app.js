@@ -64,4 +64,42 @@ const loadAIPostDetails = id =>{
 // display single details
 const displayAIPostDetails = (details) =>{
 
+    const modalBody =  document.getElementById('modalBody');
+    modalBody.innerHTML = `
+    <div class="row">
+            <div class="col-md-6 my-2">
+                <div class="card bg-light " >
+                    <div class="card-body  ">
+                      <h5 class="card-title">ChatGPT is an AI-powered chatbot platform that uses OpenAI's GPT technology to simulate human conversation.</h5>
+
+                      <div class="row gap-3 justify-content-center text-center">
+                        <div class="col-md-4 bg-white p-3 text-success rounded w-25"><p>$10/month Basic</p></div>
+                        <div class="col-md-4 bg-white p-3 text-success rounded w-25"><p>$10/month Basic</p></div>
+                        <div class="col-md-4 bg-white p-3 text-success rounded w-25"><p>$10/month Basic</p></div>                  
+                      </div>
+                      
+                      
+                      <!-- feature and Integrations part start here -->
+                      <div class="row">
+                        <div class="col-md-6 my-2">
+                            <h3>Features</h3>
+                        </div>
+                        <div class="col-md-6">
+                            <h3>Integrations</h3>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card" >
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    `
 }
