@@ -8,6 +8,17 @@
     <title>Assignment 6</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <style>
+        .widthPrice{
+            width: 28% !important;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .widthPrice{
+            width: 100% !important;
+        }
+        }
+    </style>
   </head>
   <body>
     <!-- Header part start here -->
@@ -30,22 +41,17 @@
     <section>
   <!-- Modal -->
   <div class="modal fade" id="aiDetailsModal" tabindex="-1" aria-labelledby="aiDetailsModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header"> 
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div id="modalBody" class="modal-body">
+        <div id="modalBody" class="modal-body py-5" >
           
         </div>
       </div>
     </div>
   </div>
-    </section>
-
-    <!-- test  -->
-    <section>
-      
     </section>
 
 </main>

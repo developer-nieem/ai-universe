@@ -57,46 +57,59 @@ const loadAIPostDetails = id =>{
     
     fetch(url)
       .then((res) => res.json())
-      .then((data) => displayAIPostDetails(data))
+      .then((data) => displayAIPostDetails(data.data))
       .catch((error) => console.log(error));
 }
 
 // display single details
 const displayAIPostDetails = (details) =>{
 
+    console.log(details);
     const modalBody =  document.getElementById('modalBody');
     modalBody.innerHTML = `
     <div class="row">
-            <div class="col-md-6 my-2">
+            <div class="col-md-6 my-2 " >
                 <div class="card bg-light " >
                     <div class="card-body  ">
-                      <h5 class="card-title">ChatGPT is an AI-powered chatbot platform that uses OpenAI's GPT technology to simulate human conversation.</h5>
+                      <h5 class="card-title">${details.description}</h5>
 
+                      
                       <div class="row gap-3 justify-content-center text-center">
-                        <div class="col-md-4 bg-white p-3 text-success rounded w-25"><p>$10/month Basic</p></div>
-                        <div class="col-md-4 bg-white p-3 text-success rounded w-25"><p>$10/month Basic</p></div>
-                        <div class="col-md-4 bg-white p-3 text-success rounded w-25"><p>$10/month Basic</p></div>                  
+                        <div class="col-md-4 bg-white p-3 text-success rounded widthPrice">${details.pricing[0].price} ${details.pricing[0].plan} </div>
+                        <div class="col-md-4 bg-white p-3 text-warning-emphasis rounded widthPrice">${details.pricing[1].price} ${details.pricing[1].plan} </div>
+                        <div class="col-md-4 bg-white p-3 text-success rounded widthPrice">${details.pricing[2].price} ${details.pricing[2].plan} </div>                  
                       </div>
                       
                       
+                      
                       <!-- feature and Integrations part start here -->
-                      <div class="row">
-                        <div class="col-md-6 my-2">
-                            <h3>Features</h3>
-                        </div>
+                      <div class="row  mb-5" >
                         <div class="col-md-6">
-                            <h3>Integrations</h3>
+                            <h4>Features</h4>
+                            <ul>
+                                <li>${details.features[1].feature_name}</li>
+                                <li>${details.features[2].feature_name}</li>
+                                <li>${details.features[3].feature_name}</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6 " >
+                            <h4>Integrations</h4>
+                            <ul>
+                                <li>${details.features[1].feature_name}</li>
+                                <li>${details.features[2].feature_name}</li>
+                                <li>${details.features[3].feature_name}</li>
+                            </ul>
                         </div>
                       </div>
                     </div>
                   </div>
             </div>
-            <div class="col-md-6">
-                <div class="card" >
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div class="col-md-6 " >
+                <div class="card p-2" >
+                    <img src="${details.image_link[0]}" class="card-img-top" alt="...">
+                    <div class="card-body text-center">
+                      <h5 class="card-title">${details.input_output_examples[0].input}</h5>
+                      <p class="card-text mb-5">${details.input_output_examples[0].output}</p>
                     </div>
                   </div>
             </div>
