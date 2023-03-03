@@ -26,16 +26,16 @@
         }
     </style>
   </head>
-  <body >
+  <body  onload="loadingSpinner()">
     <!-- Header part start here -->
     <header class="text-center mt-5">
         <h1>AI Universe Hub</h1>
-        <button class="btn btn-success mt-3">Sort By Date</button>
+        <button id="sort-button'" class="btn btn-success mt-3">Sort By Date</button>
     </header>
 <!-- Header part end -->
 
 <!-- main part start here -->
-<main onload="loadingSpinner()"  class="container my-5">
+<main  class="container my-5">
     <!-- loading data spinner -->
         <section class="d-none" id="loading-spinner">
             <div style="height: 300px;" class="d-flex justify-content-center align-items-center">

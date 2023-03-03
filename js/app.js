@@ -15,6 +15,7 @@ getAiData(6);
 const displayAiData = (data , dataLimit) => {
     const aiBlogsCard = document.getElementById("AiBlogsCard");
     aiBlogsCard.innerText = '';
+
     // show 6 data
     const loadBtn=  document.getElementById('load-btn');
     if (dataLimit && data.length > 6) {
@@ -23,12 +24,12 @@ const displayAiData = (data , dataLimit) => {
     }else{
         loadBtn.classList.add('d-none');
     }
-    
 
 
-  
   data.forEach((singlePost) => {
+ 
 
+    // set content with dynamic
     aiBlogsCard.innerHTML += `
          <div class="col">
               <div class="card h-100 p-2">
@@ -58,7 +59,7 @@ const displayAiData = (data , dataLimit) => {
    
   });
   loadComplate(false);
-  console.log(loadComplate(false));
+ 
 };
 
 // load AI post details 
@@ -77,6 +78,9 @@ const displayAIPostDetails = (details) =>{
     console.log(details);
     const modalBody =  document.getElementById('modalBody');
     
+    if(details.pricing === null && details.integrations === null && details.use_cases === null && details.use_cases === null && details.input_output_examples === null){
+            console.log("show");
+    }
     modalBody.innerHTML = `
     <div class="row">
             <div class="col-md-6 my-2 " >
@@ -85,10 +89,10 @@ const displayAIPostDetails = (details) =>{
                       <h5 class="card-title">${details.description}</h5>
                       <div class="row gap-3 justify-content-center text-center">
                         <div class="col-md-4 bg-white p-3 text-success rounded widthPrice">
-                        ${details.pricing[0]? details.pricing[0].price : 'Free of Cost'}  ${details.pricing[0].plan}
+                        ${(details.pricing != null) ? details.pricing[0].price : 'Free of Cost'}  ${(details.pricing != null) ? details.pricing[0].plan : ''}
                         </div>
-                        <div class="col-md-4 bg-white p-3 text-warning-emphasis rounded widthPrice">${details.pricing[1]? details.pricing[1].price: 'Free Of Cost'} ${details.pricing[1].plan} </div>
-                        <div class="col-md-4 bg-white p-3 text-success rounded widthPrice">${details.pricing[2]? details.pricing[1].price: 'Free Of Cost'} ${details.pricing[2].plan} </div>                  
+                        <div class="col-md-4 bg-white p-3 text-warning-emphasis rounded widthPrice"> ${(details.pricing != null) ? details.pricing[1].price : 'Free of Cost'}  ${(details.pricing != null) ? details.pricing[1].plan : ''} </div>
+                        <div class="col-md-4 bg-white p-3 text-success rounded widthPrice"> ${(details.pricing != null) ? details.pricing[2].price : 'Free of Cost'}  ${(details.pricing != null) ? details.pricing[2].plan : ''} </div>                  
                       </div>
 
                       <!-- feature and Integrations part start here -->
@@ -96,17 +100,21 @@ const displayAIPostDetails = (details) =>{
                         <div class="col-md-6">
                             <h4>Features</h4>
                             <ul>
-                                <li>${details.features[1] ? details.features[1].feature_name :'not found featurs'}</li>
-                                <li>${details.features[2] ? details.features[2].feature_name :'not found featurs'}</li>
-                                <li>${details.features[3] ? details.features[3].feature_name :'not found featurs'}</li>
+                                <li>${(details.features !== null) ? details.features[1].feature_name :'not found featurs'}</li>
+                                <li>${(details.features !== null) ? details.features[2].feature_name :'not found featurs'}</li>
+                                <li>${(details.features !== null) ? details.features[3].feature_name :'not found featurs'}</li>
+                                ${(details.features[4]) ? `${`<li> ${details.features[4].feature_name} </li>`}`  : ''}
+                                
+                              
+                               
                             </ul>
                         </div>
                         <div class="col-md-6 " >
                             <h4>Integrations</h4>
                             <ul>
-                                <li>${details.integrations[0] ? details.integrations[0] : 'No Data found'}</li>
-                                <li>${details.integrations[1] ? details.integrations[1] : 'No Data found'}</li>
-                                <li>${details.integrations[2] ? details.integrations[2] : 'No Data found'}</li>
+                                <li>${(details.integrations !== null) ? details.integrations[0] : 'No Data found'}</li>
+                                <li>${(details.integrations !== null && details.integrations.length != 1) ? details.integrations[1] : 'No Data found'}</li>
+                                <li>${(details.integrations !== null && details.integrations.length != 1) ? details.integrations[2] : 'No Data found'}</li>
                             </ul>
                         </div>
                       </div>
@@ -123,8 +131,8 @@ const displayAIPostDetails = (details) =>{
                     </div>
                     <img src="${details.image_link[0]}" class="card-img-top" alt="...">
                     <div class="card-body text-center">
-                      <h5 class="card-title">${details.input_output_examples[0] ? details.input_output_examples[0].input : 'Can you give any example?'}</h5>
-                      <p class="card-text mb-5">${details.input_output_examples[0] ? details.input_output_examples[0].output : 'No! Not Yet! Take a break!!!'}</p>
+                      <h5 class="card-title">${(details.input_output_examples !== null) ? details.input_output_examples[0].input : 'Can you give any example?'}</h5>
+                      <p class="card-text mb-5">${(details.input_output_examples !== null) ? details.input_output_examples[0].output : 'No! Not Yet! Take a break!!!'}</p>
                     </div>
                   </div>
             </div>
@@ -144,7 +152,6 @@ document.getElementById('load-all-btn').addEventListener('click', function(){
 
 const loadingSpinner =  () => {
   loadComplate(true);
-  console.log(loadComplate(true))
 }
 
 const loadComplate = (isLoading) =>{
@@ -157,4 +164,5 @@ const loadComplate = (isLoading) =>{
 }
 
 
-// hide accourancy 
+// sort
+
