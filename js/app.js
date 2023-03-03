@@ -76,6 +76,7 @@ const displayAIPostDetails = (details) =>{
 
     console.log(details);
     const modalBody =  document.getElementById('modalBody');
+    
     modalBody.innerHTML = `
     <div class="row">
             <div class="col-md-6 my-2 " >
@@ -91,7 +92,7 @@ const displayAIPostDetails = (details) =>{
                       </div>
 
                       <!-- feature and Integrations part start here -->
-                      <div class="row  mb-5" >
+                      <div class="row  mb-5 mt-5" >
                         <div class="col-md-6">
                             <h4>Features</h4>
                             <ul>
@@ -115,7 +116,10 @@ const displayAIPostDetails = (details) =>{
             <div class="col-md-6 " >
                 <div class="card p-2" >
                     <div class="text-end ">
-                    <button class="btn btn-primary accouracy-btn">${details.accuracy.score*100 === 0? 'No accuracy' : details.accuracy.score*100 +'% Accuracy'  }</button>
+                    
+                    ${details.accuracy.score*100 === 0? `` : `${`<button id="accouracy-btn" class="btn btn-primary ">${details.accuracy.score*100 +'% Accuracy'} </button>`}`}
+                    
+                
                     </div>
                     <img src="${details.image_link[0]}" class="card-img-top" alt="...">
                     <div class="card-body text-center">
@@ -151,3 +155,6 @@ const loadComplate = (isLoading) =>{
       hideSpinner.classList.add('d-none');
   }
 }
+
+
+// hide accourancy 
