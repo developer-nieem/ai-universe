@@ -106,6 +106,9 @@ const displayAIPostDetails = (details) =>{
             </div>
             <div class="col-md-6 " >
                 <div class="card p-2" >
+                    <div class="text-end ">
+                    <button class="btn btn-primary accouracy-btn">${ + details.accuracy.score*100 +'% Accuracy'}</button>
+                    </div>
                     <img src="${details.image_link[0]}" class="card-img-top" alt="...">
                     <div class="card-body text-center">
                       <h5 class="card-title">${details.input_output_examples[0].input}</h5>
