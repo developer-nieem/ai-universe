@@ -70,34 +70,32 @@ const displayAIPostDetails = (details) =>{
     <div class="row">
             <div class="col-md-6 my-2 " >
                 <div class="card bg-light " >
-                    <div class="card-body  ">
+                    <div class="card-body  py-5">
                       <h5 class="card-title">${details.description}</h5>
-
-                      
                       <div class="row gap-3 justify-content-center text-center">
-                        <div class="col-md-4 bg-white p-3 text-success rounded widthPrice">${details.pricing[0].price} ${details.pricing[0].plan} </div>
-                        <div class="col-md-4 bg-white p-3 text-warning-emphasis rounded widthPrice">${details.pricing[1].price} ${details.pricing[1].plan} </div>
-                        <div class="col-md-4 bg-white p-3 text-success rounded widthPrice">${details.pricing[2].price} ${details.pricing[2].plan} </div>                  
+                        <div class="col-md-4 bg-white p-3 text-success rounded widthPrice">
+                        ${details.pricing[0]? details.pricing[0].price : 'Free of Cost'}  ${details.pricing[0].plan}
+                        </div>
+                        <div class="col-md-4 bg-white p-3 text-warning-emphasis rounded widthPrice">${details.pricing[1]? details.pricing[1].price: 'Free Of Cost'} ${details.pricing[1].plan} </div>
+                        <div class="col-md-4 bg-white p-3 text-success rounded widthPrice">${details.pricing[2]? details.pricing[1].price: 'Free Of Cost'} ${details.pricing[2].plan} </div>                  
                       </div>
-                      
-                      
-                      
+
                       <!-- feature and Integrations part start here -->
                       <div class="row  mb-5" >
                         <div class="col-md-6">
                             <h4>Features</h4>
                             <ul>
-                                <li>${details.features[1].feature_name}</li>
-                                <li>${details.features[2].feature_name}</li>
-                                <li>${details.features[3].feature_name}</li>
+                                <li>${details.features[1] ? details.features[1].feature_name :'not found featurs'}</li>
+                                <li>${details.features[2] ? details.features[2].feature_name :'not found featurs'}</li>
+                                <li>${details.features[3] ? details.features[3].feature_name :'not found featurs'}</li>
                             </ul>
                         </div>
                         <div class="col-md-6 " >
                             <h4>Integrations</h4>
                             <ul>
-                                <li>${details.features[1].feature_name}</li>
-                                <li>${details.features[2].feature_name}</li>
-                                <li>${details.features[3].feature_name}</li>
+                                <li>${details.integrations[0] ? details.integrations[0] : 'No Data found'}</li>
+                                <li>${details.integrations[1] ? details.integrations[1] : 'No Data found'}</li>
+                                <li>${details.integrations[2] ? details.integrations[2] : 'No Data found'}</li>
                             </ul>
                         </div>
                       </div>
@@ -107,15 +105,18 @@ const displayAIPostDetails = (details) =>{
             <div class="col-md-6 " >
                 <div class="card p-2" >
                     <div class="text-end ">
-                    <button class="btn btn-primary accouracy-btn">${ + details.accuracy.score*100 +'% Accuracy'}</button>
+                    <button class="btn btn-primary accouracy-btn">${details.accuracy.score*100 === 0? 'No accuracy' : details.accuracy.score*100 +'% Accuracy'  }</button>
                     </div>
                     <img src="${details.image_link[0]}" class="card-img-top" alt="...">
                     <div class="card-body text-center">
-                      <h5 class="card-title">${details.input_output_examples[0].input}</h5>
-                      <p class="card-text mb-5">${details.input_output_examples[0].output}</p>
+                      <h5 class="card-title">${details.input_output_examples[0] ? details.input_output_examples[0].input : 'Can you give any example?'}</h5>
+                      <p class="card-text mb-5">${details.input_output_examples[0] ? details.input_output_examples[0].output : 'No! Not Yet! Take a break!!!'}</p>
                     </div>
                   </div>
             </div>
         </div>
     `
 }
+
+
+
