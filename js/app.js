@@ -112,9 +112,10 @@ const displayAIPostDetails = (details) =>{
                         <div class="col-md-6 " >
                             <h4>Integrations</h4>
                             <ul>
-                                <li>${(details.integrations !== null) ? details.integrations[0] : 'No Data found'}</li>
-                                <li>${(details.integrations !== null && details.integrations.length != 1) ? details.integrations[1] : 'No Data found'}</li>
-                                <li>${(details.integrations !== null && details.integrations.length != 1) ? details.integrations[2] : 'No Data found'}</li>
+                                ${(details.integrations !== null) ? `${`<li>${details.integrations[0]}</li>`}`  : ''}
+                                ${(details.integrations !== null && details.integrations.length != 1) ?  `${`<li>${details.integrations[1]}</li>`}`  : ''}
+                                
+                                ${(details.integrations !== null && details.integrations.length != 1 && details.integrations.length != 2) ?  `${`<li>${details.integrations[2]}</li>`}`  : `${`<li>Data not Found</li>`}`}
                             </ul>
                         </div>
                       </div>
