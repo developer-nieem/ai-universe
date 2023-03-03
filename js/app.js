@@ -1,4 +1,5 @@
-
+  let allFeatures = [];
+  console.log(allFeatures);
 // Get Api Data
 const getAiData = () => {
   const url = `https://openapi.programming-hero.com/api/ai/tools`;
@@ -20,19 +21,17 @@ const displayAiData = (data) => {
 
   data.forEach((singlePost) => {
 
-    //   feature list
-// const featurList =  document.getElementById('featurList');
-    // console.log(singlePost);
     aiBlogsCard.innerHTML += `
          <div class="col">
               <div class="card h-100 p-2">
                         <img src="${singlePost.image}" class="card-img-top img-fluid" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">features</h5>
-                        <div id="featurList" class="card-text">   
-                            ${singlePost.features.map(feature =>{
-                                `${feature}`
-                            })}
+                        <div id="featurList" class="card-text">  
+                          <p>${singlePost.features[0] ? '1. ' +singlePost.features[0]  : "no data found"}</p>
+                          <p>${singlePost.features[1] ? '2. ' +singlePost.features[1]  : "no data found"}</p>
+                          <p>${singlePost.features[2] ? '3. ' +singlePost.features[2]  : ""}</p>
+                          <p>${singlePost.features[3] ? '4. ' +singlePost.features[3]  : ""}</p>
                         </div>
                     </div>
                     <div class="card-footer d-flex  justify-content-between align-items-center">
