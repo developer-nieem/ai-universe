@@ -1,24 +1,32 @@
-  let allFeatures = [];
-  console.log(allFeatures);
+
 // Get Api Data
-const getAiData = () => {
+const getAiData = (dataLimit) => {
   const url = `https://openapi.programming-hero.com/api/ai/tools`;
   fetch(url)
     .then((res) => res.json())
-    .then((data) => displayAiData(data.data.tools))
+    .then((data) => displayAiData(data.data.tools, dataLimit))
     .catch((error) => console.log(error));
 };
 
 // dicler function
-getAiData();
+getAiData(6);
 
 // display Api Data
-const displayAiData = (data) => {
+const displayAiData = (data , dataLimit) => {
+    const aiBlogsCard = document.getElementById("AiBlogsCard");
+    aiBlogsCard.innerText = '';
+    // show 6 data
+    const loadBtn=  document.getElementById('load-btn');
+    if (dataLimit && data.length > 6) {
+        data = data.slice(0,6);
+        loadBtn.classList.remove('d-none')
+    }else{
+        loadBtn.classList.add('d-none');
+    }
+    
 
-  const aiBlogsCard = document.getElementById("AiBlogsCard");
 
-
-
+  
   data.forEach((singlePost) => {
 
     aiBlogsCard.innerHTML += `
@@ -119,3 +127,11 @@ const displayAIPostDetails = (details) =>{
 
 
 
+
+// Load ALL  data 
+
+
+
+document.getElementById('load-all-btn').addEventListener('click', function(){
+    getAiData();
+})
