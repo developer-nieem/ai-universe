@@ -26,7 +26,7 @@
         }
     </style>
   </head>
-  <body>
+  <body >
     <!-- Header part start here -->
     <header class="text-center mt-5">
         <h1>AI Universe Hub</h1>
@@ -35,9 +35,9 @@
 <!-- Header part end -->
 
 <!-- main part start here -->
-<main class="container my-5">
+<main onload="loadingSpinner()"  class="container my-5">
     <!-- loading data spinner -->
-        <section id>
+        <section class="d-none" id="loading-spinner">
             <div style="height: 300px;" class="d-flex justify-content-center align-items-center">
                 <div class="spinner-border" role="status">
                   <span class="visually-hidden">Loading...</span>
@@ -46,7 +46,7 @@
         </section>
 
     <!-- show card for details and start here this section -->
-    <section>
+    <section >
         <div id="AiBlogsCard" class="row row-cols-1 row-cols-md-3 g-4">
             
           </div>

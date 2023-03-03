@@ -55,7 +55,10 @@ const displayAiData = (data , dataLimit) => {
          </div>
     
     `
+   
   });
+  loadComplate(false);
+  console.log(loadComplate(false));
 };
 
 // load AI post details 
@@ -129,9 +132,22 @@ const displayAIPostDetails = (details) =>{
 
 
 // Load ALL  data 
-
-
-
 document.getElementById('load-all-btn').addEventListener('click', function(){
     getAiData();
 })
+
+// loading spinner
+
+const loadingSpinner =  () => {
+  loadComplate(true);
+  console.log(loadComplate(true))
+}
+
+const loadComplate = (isLoading) =>{
+  const hideSpinner =  document.getElementById('loading-spinner');
+  if (isLoading) {
+      hideSpinner.classList.remove('d-none');
+  }else{
+      hideSpinner.classList.add('d-none');
+  }
+}
