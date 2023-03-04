@@ -77,12 +77,9 @@ const loadAIPostDetails = id =>{
 // display single details
 const displayAIPostDetails = (details) =>{
 
-    console.log(details);
     const modalBody =  document.getElementById('modalBody');
     
-    if(details.pricing === null && details.integrations === null && details.use_cases === null && details.use_cases === null && details.input_output_examples === null){
-            console.log("show");
-    }
+  
     modalBody.innerHTML = `
     <div class="row">
             <div class="col-md-6 my-2 " >
@@ -167,12 +164,5 @@ const loadComplate = (isLoading) =>{
 }
 
 
-
-
-// short by date
-
-// const sortByDate =() =>{
-//     displayAiData(getAllDate, 'random');
-// }
 
    
