@@ -14,6 +14,7 @@ getAiData(6);
 
 // display Api Data
 const displayAiData = (data , dataLimit) => {
+   
     const aiBlogsCard = document.getElementById("AiBlogsCard");
     aiBlogsCard.innerText = '';
 
@@ -26,10 +27,17 @@ const displayAiData = (data , dataLimit) => {
         loadBtn.classList.add('d-none');
     }
 
-   
-  data.forEach((singlePost) => {
+    // sort by date
+   const sortByDate = () => {
+    data.sort((x, y) =>{
+      x = new Date(x.published_in);
+      y = new Date(y.published_in);
+      return y -x;
+    })
+    displayAiData(data , dataLimit)
+   }
 
-    // getAllDate.push(singlePost.published_in);
+  data.forEach((singlePost) => {
 
     // set content with dynamic
     aiBlogsCard.innerHTML += `
@@ -58,9 +66,14 @@ const displayAiData = (data , dataLimit) => {
          </div>
     
     `
-   
   });
+
+  document.getElementById('sort-Bydate').addEventListener('click', function(){
+    sortByDate();
+  })
+
   loadComplate(false);
+
  
 };
 
@@ -139,9 +152,6 @@ const displayAIPostDetails = (details) =>{
         </div>
     `
 }
-
-
-
 
 // Load ALL  data 
 document.getElementById('load-all-btn').addEventListener('click', function(){
