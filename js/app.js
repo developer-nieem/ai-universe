@@ -1,3 +1,4 @@
+// let getAllDate = [];
 
 // Get Api Data
 const getAiData = (dataLimit) => {
@@ -25,9 +26,10 @@ const displayAiData = (data , dataLimit) => {
         loadBtn.classList.add('d-none');
     }
 
-
+   
   data.forEach((singlePost) => {
- 
+
+    // getAllDate.push(singlePost.published_in);
 
     // set content with dynamic
     aiBlogsCard.innerHTML += `
@@ -165,5 +167,12 @@ const loadComplate = (isLoading) =>{
 }
 
 
-// sort
 
+
+// short by date
+
+// const sortByDate =() =>{
+//     displayAiData(getAllDate, 'random');
+// }
+
+   
