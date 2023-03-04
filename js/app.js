@@ -34,9 +34,15 @@ const displayAiData = (data , dataLimit) => {
       y = new Date(y.published_in);
       return y -x;
     })
-    displayAiData(data , dataLimit)
+    displayAiData(data , dataLimit);
+    const loadBtn=  document.getElementById('load-btn');
+    loadBtn.classList.remove('d-none');
+    if (data.length === 12) {
+      loadBtn.classList.add('d-none');
+    }
    }
 
+  //  Display single card with dynamic contenet
   data.forEach((singlePost) => {
 
     // set content with dynamic
